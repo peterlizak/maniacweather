@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DashboardViewController.swift
 //  ManiacWeather
 //
 //  Created by Peter Lizak on 09/01/2020.
@@ -8,13 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class DashboardViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
