@@ -9,6 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="ManiacWeather" customModuleProvider="target">
             <connections>
+                <outlet property="historyButton" destination="VWl-K2-EfQ" id="h1M-xj-C5h"/>
+                <outlet property="inputContainerView" destination="d7N-7a-lRA" id="gDi-g7-YGv"/>
+                <outlet property="locationInputField" destination="mB3-q3-DNl" id="Qqr-2q-t1n"/>
+                <outlet property="searchButton" destination="1Qc-Pw-jGo" id="Pdg-vm-mfB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,9 +20,76 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testair" translatesAutoresizingMaskIntoConstraints="NO" id="Yzh-0W-kS2">
+                    <rect key="frame" x="55" y="383" width="304" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Wy4-RJ-k53"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7N-7a-lRA">
+                    <rect key="frame" x="25" y="453" width="364" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mB3-q3-DNl">
+                            <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" textContentType="location"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-Pw-jGo">
+                            <rect key="frame" x="289" y="0.0" width="75" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="T6H-UD-jPp"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="Nvg-nK-c8r"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mB3-q3-DNl" firstAttribute="leading" secondItem="d7N-7a-lRA" secondAttribute="leading" id="6tg-zA-cQH"/>
+                        <constraint firstItem="1Qc-Pw-jGo" firstAttribute="top" secondItem="d7N-7a-lRA" secondAttribute="top" id="Htf-a3-mJA"/>
+                        <constraint firstAttribute="bottom" secondItem="mB3-q3-DNl" secondAttribute="bottom" id="V3O-Xi-C01"/>
+                        <constraint firstAttribute="bottom" secondItem="1Qc-Pw-jGo" secondAttribute="bottom" id="dQf-6g-aKI"/>
+                        <constraint firstItem="mB3-q3-DNl" firstAttribute="top" secondItem="d7N-7a-lRA" secondAttribute="top" id="fJu-33-uc8"/>
+                        <constraint firstAttribute="height" constant="50" id="gbF-CV-09e"/>
+                        <constraint firstAttribute="trailing" secondItem="1Qc-Pw-jGo" secondAttribute="trailing" id="gdU-Ta-B9D"/>
+                        <constraint firstItem="1Qc-Pw-jGo" firstAttribute="leading" secondItem="mB3-q3-DNl" secondAttribute="trailing" constant="5" id="ghv-66-eB1"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-K2-EfQ">
+                    <rect key="frame" x="103.5" y="533" width="207" height="50"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="historyButtonClicked:" destination="-1" eventType="touchUpInside" id="9y2-bj-2dt"/>
+                        <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="4yP-Tb-uK7"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VWl-K2-EfQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1wq-QE-Qsh"/>
+                <constraint firstItem="d7N-7a-lRA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="5JO-fO-HVJ"/>
+                <constraint firstItem="VWl-K2-EfQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Nhe-5G-eKa"/>
+                <constraint firstItem="Yzh-0W-kS2" firstAttribute="trailing" secondItem="d7N-7a-lRA" secondAttribute="trailing" constant="-30" id="PyA-2v-G6Q"/>
+                <constraint firstItem="Yzh-0W-kS2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QRe-l3-ohX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d7N-7a-lRA" secondAttribute="trailing" constant="25" id="TbQ-I5-l8t"/>
+                <constraint firstItem="VWl-K2-EfQ" firstAttribute="height" secondItem="d7N-7a-lRA" secondAttribute="height" id="Tzy-xT-hlL"/>
+                <constraint firstItem="VWl-K2-EfQ" firstAttribute="top" secondItem="d7N-7a-lRA" secondAttribute="bottom" constant="30" id="lDt-Zi-0Qv"/>
+                <constraint firstItem="Yzh-0W-kS2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.9" id="sXL-uL-DLO"/>
+                <constraint firstItem="d7N-7a-lRA" firstAttribute="top" secondItem="Yzh-0W-kS2" secondAttribute="bottom" constant="30" id="tgI-iR-wam"/>
+                <constraint firstItem="Yzh-0W-kS2" firstAttribute="leading" secondItem="d7N-7a-lRA" secondAttribute="leading" constant="30" id="vjF-QB-JXA"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="108"/>
+            <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </view>
     </objects>
+    <resources>
+        <image name="testair" width="259" height="37.5"/>
+    </resources>
 </document>
