@@ -8,8 +8,9 @@
 
 import UIKit
 
-class DashboardViewController: BaseViewController {
+class DashboardViewController: GradientBackgroundBaseViewController {
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
     }
 }
