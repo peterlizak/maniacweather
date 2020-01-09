@@ -16,6 +16,7 @@
 		D017694D23C79AC5004BB390 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D017694B23C79AC5004BB390 /* DashboardViewController.xib */; };
 		D017694F23C79BAA004BB390 /* GradientBackgroundBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017694E23C79BAA004BB390 /* GradientBackgroundBaseViewController.swift */; };
 		D017695223C79D7A004BB390 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017695123C79D7A004BB390 /* UIView+Extension.swift */; };
+		D017695423C79FEA004BB390 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017695323C79FEA004BB390 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D017694B23C79AC5004BB390 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		D017694E23C79BAA004BB390 /* GradientBackgroundBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundBaseViewController.swift; sourceTree = "<group>"; };
 		D017695123C79D7A004BB390 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D017695323C79FEA004BB390 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D017695123C79D7A004BB390 /* UIView+Extension.swift */,
+				D017695323C79FEA004BB390 /* UIColor+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D017695423C79FEA004BB390 /* UIColor+Extension.swift in Sources */,
 				D017695223C79D7A004BB390 /* UIView+Extension.swift in Sources */,
 				D017692923C788E1004BB390 /* AppDelegate.swift in Sources */,
 				D017694023C78DEB004BB390 /* BaseViewController.swift in Sources */,

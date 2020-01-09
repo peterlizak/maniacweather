@@ -12,11 +12,11 @@ import UIKit
 class GradientBackgroundBaseViewController: BaseViewController {
     
     var gradientBackgroundStartColor: CGColor {
-        return UIColor.red.cgColor
+        return UIColor.ManiacWeatherTheme.gradientBackgroundStartColor.cgColor
     }
     
     var gradientBackgroundEndColor: CGColor {
-        return UIColor.blue.cgColor
+        return UIColor.ManiacWeatherTheme.gradientBackgroundEndColor.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
