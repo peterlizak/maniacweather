@@ -33,9 +33,11 @@
 		D01769B323CB4728004BB390 /* WeatherHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01769B123CB4728004BB390 /* WeatherHistoryViewController.swift */; };
 		D01769B423CB4728004BB390 /* WeatherHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01769B223CB4728004BB390 /* WeatherHistoryViewController.xib */; };
 		D01769B623CB4E3E004BB390 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */; };
+		EA49DF209BF929BDF2A97CD3 /* Pods_ManiacWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86674A6A9373DAC694621625 /* Pods-ManiacWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManiacWeather.debug.xcconfig"; path = "Target Support Files/Pods-ManiacWeather/Pods-ManiacWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		D017692523C788E1004BB390 /* ManiacWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManiacWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D017692823C788E1004BB390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D017693123C788E7004BB390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +66,8 @@
 		D01769B123CB4728004BB390 /* WeatherHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHistoryViewController.swift; sourceTree = "<group>"; };
 		D01769B223CB4728004BB390 /* WeatherHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherHistoryViewController.xib; sourceTree = "<group>"; };
 		D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManiacWeather.release.xcconfig"; path = "Target Support Files/Pods-ManiacWeather/Pods-ManiacWeather.release.xcconfig"; sourceTree = "<group>"; };
+		D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManiacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +75,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA49DF209BF929BDF2A97CD3 /* Pods_ManiacWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25F8DFEF0867423044B1C7BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86674A6A9373DAC694621625 /* Pods-ManiacWeather.debug.xcconfig */,
+				D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8AE68EAA263F4996DFFFEAB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D017691C23C788E1004BB390 = {
 			isa = PBXGroup;
 			children = (
 				D017692723C788E1004BB390 /* ManiacWeather */,
 				D017692623C788E1004BB390 /* Products */,
+				25F8DFEF0867423044B1C7BD /* Pods */,
+				8AE68EAA263F4996DFFFEAB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D017693923C788E7004BB390 /* Build configuration list for PBXNativeTarget "ManiacWeather" */;
 			buildPhases = (
+				EEF235C6F2D1E97696450D51 /* [CP] Check Pods Manifest.lock */,
 				D017692123C788E1004BB390 /* Sources */,
 				D017692223C788E1004BB390 /* Frameworks */,
 				D017692323C788E1004BB390 /* Resources */,
+				D043E4E923CD0D3C0012699C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -314,6 +340,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D043E4E923CD0D3C0012699C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		EEF235C6F2D1E97696450D51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ManiacWeather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D017692123C788E1004BB390 /* Sources */ = {
@@ -474,6 +542,7 @@
 		};
 		D017693A23C788E7004BB390 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86674A6A9373DAC694621625 /* Pods-ManiacWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +561,7 @@
 		};
 		D017693B23C788E7004BB390 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
