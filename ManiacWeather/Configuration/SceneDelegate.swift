@@ -15,8 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions) {
             if let windowScene = scene as? UIWindowScene {
                 self.window = UIWindow(windowScene: windowScene)
-                let vc = DashboardViewController()
-                self.window?.rootViewController = vc
+                self.window?.rootViewController = UINavigationController(rootViewController: DashboardViewController())
                 self.window?.makeKeyAndVisible()                
             }
     }

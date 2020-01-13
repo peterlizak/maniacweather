@@ -9,5 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    // To be overriden
+    func showError(errorString: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: errorString, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

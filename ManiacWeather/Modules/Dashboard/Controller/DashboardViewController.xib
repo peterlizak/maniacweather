@@ -67,7 +67,6 @@
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="historyButtonClicked:" destination="-1" eventType="touchUpInside" id="9y2-bj-2dt"/>
-                        <action selector="searchButtonClicked:" destination="-1" eventType="touchUpInside" id="4yP-Tb-uK7"/>
                     </connections>
                 </button>
             </subviews>

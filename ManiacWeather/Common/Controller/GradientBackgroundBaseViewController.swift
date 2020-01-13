@@ -19,8 +19,8 @@ class GradientBackgroundBaseViewController: BaseViewController {
         return UIColor.ManiacWeatherTheme.gradientBackgroundEndColor.cgColor
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.applyGradientBackground(colors: [gradientBackgroundStartColor, gradientBackgroundEndColor])
     }
 }

@@ -10,7 +10,12 @@ import UIKit
 
 class DashboardViewController: GradientBackgroundBaseViewController {
 
+    // MARK: - Properties
     private var defaultCornerRadius: CGFloat = 14.0
+    private let dashboardService = DashboardService()
+    private var weather: Weather?
+    
+    // MARK: - UI Objects
     @IBOutlet private weak var inputContainerView: UIView!
     @IBOutlet private weak var searchButton: UIButton! {
         didSet {
@@ -21,6 +26,7 @@ class DashboardViewController: GradientBackgroundBaseViewController {
             }
         }
     }
+    
     @IBOutlet private weak var locationInputField: UITextField! {
         didSet {
             locationInputField.roundCorners(corners: [.topLeft,.bottomLeft], radius: defaultCornerRadius)
@@ -40,14 +46,37 @@ class DashboardViewController: GradientBackgroundBaseViewController {
             historyButton.layer.masksToBounds = false
             
             historyButton.setTitle("View History".uppercased(), for: .normal)
+            historyButton.setTitleColor(.black, for: .highlighted)
         }
     }
     
-    @IBAction func searchButtonClicked(_ sender: Any) {
-        // TODO: show weather
+    // MARK: - Overides
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.transparentBackground()
     }
     
-    @IBAction func historyButtonClicked(_ sender: Any) {
-        // TODO: show history
+    // MARK: - Actions
+    @IBAction private func searchButtonClicked(_ sender: Any) {
+        if let locationName = locationInputField.text {
+            fetchWeatherFor(location: locationName)
+        }
+    }
+
+    @IBAction private func historyButtonClicked(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(WeatherHistoryViewController(), animated: true)
+        }
+    }
+    
+    // MARK: - Services
+    private func fetchWeatherFor(location: String) {
+        dashboardService.weatherFor(location: location, completionBlock: { [weak self] weather, error in
+            if weather != nil {
+                self?.weather = weather
+            } else if let errorString = error {
+                self?.showError(errorString: errorString)
+            }
+        })
     }
 }
