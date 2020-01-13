@@ -13,17 +13,14 @@ enum APIType {
 }
 
 extension APIType {
-    var baseURL: URL { get {
-            switch environment {
-            case .production:
-               return URL(fileURLWithPath: "https://api.openweathermap.org")
-            }
+    var baseURL: URL {
+        switch environment {
+        case .production:
+           return URL(fileURLWithPath: "https://api.openweathermap.org")
         }
     }
     // TODO: Environment should be determined by Scheme or by global flag
     var environment: NetworkEnvironment {
-        get {
-            return .production
-        }
+        return .production
     }
 }

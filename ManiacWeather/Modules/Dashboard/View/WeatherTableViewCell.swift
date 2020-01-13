@@ -21,25 +21,25 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var date: UILabel!
-    
+
     static var reuseIdentifier = "WeatherTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     func setupFromWeather(weather: Weather) {
         currentWeatherDescription.text = weather.description
         if let temp = weather.main?.temp {
             temperature.text = String(temp) + "°"
         }
         location.text = weather.locationName
-        if let dt = weather.dt {
-            date.text = unixToDate(unixTime: dt).uppercased()
+        if let unixTime = weather.unixTime {
+            date.text = unixToDate(unixTime: unixTime).uppercased()
         }
         currentWeatherImageView?.loadImageUsingCache(withUrl: "https://openweathermap.org/img/wn/50n@2x.png")
     }
-    
+
     // TODO: refactor this -> Maybe move this somewhere else
     private func unixToDate(unixTime: Int) -> String {
         let date = Date(timeIntervalSince1970: Double(unixTime))
@@ -49,24 +49,24 @@ class WeatherTableViewCell: UITableViewCell {
         let localDate = dateFormatter.string(from: date).replacingOccurrences(of: " ", with: "\n")
         return localDate
     }
-    
+
 }
 
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-    func loadImageUsingCache(withUrl urlString : String) {
+    func loadImageUsingCache(withUrl urlString: String) {
         let url = URL(string: urlString)
         if url == nil {return}
         self.image = nil
 
         // check cached image
-        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
             return
         }
 
         // if not, download image from url
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, _, error) in
             if error != nil {
                 print(error!)
                 return
@@ -81,4 +81,3 @@ extension UIImageView {
         }).resume()
     }
 }
-

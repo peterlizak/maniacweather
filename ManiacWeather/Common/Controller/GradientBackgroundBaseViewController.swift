@@ -1,4 +1,3 @@
-
 //
 //  GradientBaseViewController.swift
 //  ManiacWeather
@@ -10,15 +9,15 @@
 import UIKit
 
 class GradientBackgroundBaseViewController: BaseViewController {
-    
+
     var gradientBackgroundStartColor: CGColor {
         return UIColor.ManiacWeatherTheme.gradientBackgroundStartColor.cgColor
     }
-    
+
     var gradientBackgroundEndColor: CGColor {
         return UIColor.ManiacWeatherTheme.gradientBackgroundEndColor.cgColor
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.applyGradientBackground(colors: [gradientBackgroundStartColor, gradientBackgroundEndColor])

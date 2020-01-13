@@ -17,8 +17,9 @@ enum NetworkError: Error {
 typealias WebServiceCompletionBlock = (Result<Data, Error>) -> Void
 
 struct APIService {
-  
-    @discardableResult public static func requestAPI(apiModel: APIModelType, completion: @escaping WebServiceCompletionBlock) -> URLSessionDataTask? {
+
+    @discardableResult public static func requestAPI(apiModel: APIModelType,
+                                                     completion: @escaping WebServiceCompletionBlock) -> URLSessionDataTask? {
         let escapedAddress = (apiModel.api.apiBasePath()+apiModel.api.apiEndPath()).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         var request = URLRequest(url: URL(string: escapedAddress!)!)
         request.httpMethod = apiModel.api.httpMthodType().rawValue
@@ -38,13 +39,12 @@ struct APIService {
                 return
             }
 
-            if let httpStatus = response as? HTTPURLResponse,  ![200, 201].contains(httpStatus.statusCode) {
+            if let httpStatus = response as? HTTPURLResponse, ![200, 201].contains(httpStatus.statusCode) {
                 completion(.failure(NetworkError.incorrectData(data)))
             }
             completion(.success(data))
 
         }
-    
         task.resume()
         return task
     }

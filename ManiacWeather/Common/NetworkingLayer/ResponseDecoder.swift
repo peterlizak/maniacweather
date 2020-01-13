@@ -12,7 +12,8 @@ class JSONResponseDecoder {
 
     typealias JSONDecodeCompletion<T> = (T?, Error?) -> Void
 
-    static func decodeFrom<T: Decodable>(_ responseData: Data, returningModelType: T.Type, completion: JSONDecodeCompletion<T>) {
+    static func decodeFrom<T: Decodable>(_ responseData: Data,
+                                         returningModelType: T.Type, completion: JSONDecodeCompletion<T>) {
         do {
             let model = try JSONDecoder().decode(returningModelType, from: responseData)
             completion(model, nil)

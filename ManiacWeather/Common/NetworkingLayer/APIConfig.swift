@@ -39,7 +39,7 @@ struct WebserviceConfig {
     func generateHeader() -> [String: String] {
         var headerDict = [String: String]()
         headerDict["Content-Type"] = "application/json"
-        
+
         return headerDict
     }
 }

@@ -14,7 +14,7 @@ extension UINavigationController {
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = true
     }
-    
+
     func imageAsBackButtonItem(image: UIImage?, imageColor: UIColor?) {
         guard let image = image else { return }
         navigationBar.backIndicatorImage = image.withRenderingMode(.alwaysTemplate)

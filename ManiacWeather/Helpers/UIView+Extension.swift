@@ -17,7 +17,7 @@ extension UIView {
 
         layer.insertSublayer(gradient, at: 0)
     }
-    
+
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
@@ -25,4 +25,3 @@ extension UIView {
         layer.mask = mask
     }
 }
-

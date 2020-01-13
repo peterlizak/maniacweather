@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias APIServiceCompletion = (_ success: Bool, _ data: Decodable?,_ error: String?)->()
+public typealias APIServiceCompletion = (_ success: Bool, _ data: Decodable?, _ error: String?) -> Void
 
 enum Result {
     case success
@@ -18,8 +18,8 @@ enum Result {
 class APIService {
     static let shared = APIService()
     private var task: URLSessionTask?
-    
-    func perform<T>(endPoint: EndPoint<T>, completion: @escaping (_ success: Bool, _ data: T?,_ error: String?)->()) {
+
+    func perform<T>(endPoint: EndPoint<T>, completion: @escaping (_ success: Bool, _ data: T?, _ error: String?) -> Void) {
         let session = URLSession.shared
         do {
            let request = try endPoint.buildRequest(from: endPoint)
@@ -38,7 +38,7 @@ class APIService {
                         }
                         do {
                             let apiResponse = try JSONDecoder().decode(endPoint.expectedResponseType!.self, from: responseData)
-                             completion(true, apiResponse,nil)
+                             completion(true, apiResponse, nil)
                         } catch {
                              print(error)
                              completion(false, nil, NetworkResponse.unableToDecode.rawValue)
@@ -56,20 +56,20 @@ class APIService {
         }
         self.task?.resume()
     }
-    
+
     func cancel() {
         self.task?.cancel()
     }
 }
 
 extension HTTPURLResponse {
-    func handleNetworkResponse() -> Result{
+    func handleNetworkResponse() -> Result {
       switch statusCode {
-       case 200...299: return .success
-       case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
-       case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-       case 600: return .failure(NetworkResponse.outdated.rawValue)
-       default: return .failure(NetworkResponse.failed.rawValue)
+      case 200...299: return .success
+      case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
+      case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
+      case 600: return .failure(NetworkResponse.outdated.rawValue)
+      default: return .failure(NetworkResponse.failed.rawValue)
       }
     }
 }
