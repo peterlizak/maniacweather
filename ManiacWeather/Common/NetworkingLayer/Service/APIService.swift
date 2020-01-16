@@ -8,23 +8,17 @@
 
 import Foundation
 
-public typealias APIServiceCompletion = (_ success: Bool, _ data: Decodable?, _ error: String?) -> Void
-
-enum Result {
-    case success
-    case failure(String)
-}
-
 class APIService {
     static let shared = APIService()
     private var task: URLSessionTask?
 
-    func perform<T>(endPoint: EndPoint<T>, completion: @escaping (_ success: Bool, _ data: T?, _ error: String?) -> Void) {
+    func perform<T>(endPoint: EndPoint<T>, completion: @escaping (_ success: Bool, _ data: T?, _ error: APIServiceError?) -> Void) {
         let session = URLSession.shared
         do {
            let request = try endPoint.buildRequest(from: endPoint)
            task = session.dataTask(with: request, completionHandler: { data, response, error in
                 if let response = response as? HTTPURLResponse {
+                    // TODO: Check for endPoint.expectedStatusCode
                     let result = response.handleNetworkResponse()
                     switch result {
                     case .success:
@@ -33,7 +27,7 @@ class APIService {
                             return
                         }
                         guard let responseData = data else {
-                           completion(false, nil, NetworkResponse.noData.rawValue)
+                            completion(false, nil, APIServiceError(code: response.statusCode, description: NetworkResponse.noData.rawValue))
                            return
                         }
                         do {
@@ -41,35 +35,23 @@ class APIService {
                              completion(true, apiResponse, nil)
                         } catch {
                              print(error)
-                             completion(false, nil, NetworkResponse.unableToDecode.rawValue)
+                             completion(false, nil, APIServiceError(code: response.statusCode, description: NetworkResponse.unableToDecode.rawValue))
                         }
                     case .failure(let networkFailureError):
-                       completion(false, nil, networkFailureError)
+                       completion(false, nil, APIServiceError(code: response.statusCode, description: networkFailureError))
                     }
                 } else {
-                    completion(false, nil, NetworkResponse.unableToParseURLResponse.rawValue)
+                    completion(false, nil, APIServiceError(code: nil, description: NetworkResponse.unableToParseURLResponse.rawValue))
                 }
            })
         } catch {
             print(error)
-            completion(false, nil, NetworkResponse.unableToBuildRequest.rawValue)
+            completion(false, nil, APIServiceError(code: nil, description: NetworkResponse.unableToBuildRequest.rawValue))
         }
         self.task?.resume()
     }
 
     func cancel() {
         self.task?.cancel()
-    }
-}
-
-extension HTTPURLResponse {
-    func handleNetworkResponse() -> Result {
-      switch statusCode {
-      case 200...299: return .success
-      case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
-      case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-      case 600: return .failure(NetworkResponse.outdated.rawValue)
-      default: return .failure(NetworkResponse.failed.rawValue)
-      }
     }
 }

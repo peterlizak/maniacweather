@@ -14,6 +14,7 @@
                 <outlet property="locationInputField" destination="mB3-q3-DNl" id="Qqr-2q-t1n"/>
                 <outlet property="searchButton" destination="1Qc-Pw-jGo" id="Pdg-vm-mfB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherInfoView" destination="MF3-3e-0Mm" id="2aj-7A-B1l"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -69,19 +70,29 @@
                         <action selector="historyButtonClicked:" destination="-1" eventType="touchUpInside" id="9y2-bj-2dt"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MF3-3e-0Mm">
+                    <rect key="frame" x="20" y="107" width="374" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="G9d-QC-THb"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="VWl-K2-EfQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1wq-QE-Qsh"/>
                 <constraint firstItem="d7N-7a-lRA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="5JO-fO-HVJ"/>
+                <constraint firstItem="MF3-3e-0Mm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="DkW-qm-Z5z"/>
                 <constraint firstItem="VWl-K2-EfQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Nhe-5G-eKa"/>
                 <constraint firstItem="Yzh-0W-kS2" firstAttribute="trailing" secondItem="d7N-7a-lRA" secondAttribute="trailing" constant="-30" id="PyA-2v-G6Q"/>
                 <constraint firstItem="Yzh-0W-kS2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QRe-l3-ohX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d7N-7a-lRA" secondAttribute="trailing" constant="25" id="TbQ-I5-l8t"/>
                 <constraint firstItem="VWl-K2-EfQ" firstAttribute="height" secondItem="d7N-7a-lRA" secondAttribute="height" id="Tzy-xT-hlL"/>
                 <constraint firstItem="VWl-K2-EfQ" firstAttribute="top" secondItem="d7N-7a-lRA" secondAttribute="bottom" constant="30" id="lDt-Zi-0Qv"/>
+                <constraint firstItem="MF3-3e-0Mm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="63" id="ns6-je-9gh"/>
                 <constraint firstItem="Yzh-0W-kS2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.9" id="sXL-uL-DLO"/>
                 <constraint firstItem="d7N-7a-lRA" firstAttribute="top" secondItem="Yzh-0W-kS2" secondAttribute="bottom" constant="30" id="tgI-iR-wam"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MF3-3e-0Mm" secondAttribute="trailing" constant="20" id="tvd-6a-hjk"/>
                 <constraint firstItem="Yzh-0W-kS2" firstAttribute="leading" secondItem="d7N-7a-lRA" secondAttribute="leading" constant="30" id="vjF-QB-JXA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

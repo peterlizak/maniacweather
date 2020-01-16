@@ -12,6 +12,7 @@ struct EndPoint<T: Decodable> {
     var urlParameter: [String: String]?
     var jsonParameter: [String: Any]?
     var expectedResponseType: T.Type?
+    var expectedResponseCode: Int?
     var httpMethod: HTTPMethod = .get
     var path: String
     var api: APIType

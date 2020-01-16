@@ -33,6 +33,11 @@
 		D01769B323CB4728004BB390 /* WeatherHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01769B123CB4728004BB390 /* WeatherHistoryViewController.swift */; };
 		D01769B423CB4728004BB390 /* WeatherHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01769B223CB4728004BB390 /* WeatherHistoryViewController.xib */; };
 		D01769B623CB4E3E004BB390 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */; };
+		D0387B4623CE66DA00B3F32C /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0387B4523CE66DA00B3F32C /* README.txt */; };
+		D0387B4823CE6C6C00B3F32C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4723CE6C6C00B3F32C /* UserDefaults+Extension.swift */; };
+		D0387B4B23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */; };
+		D0387B4D23CEFB1800B3F32C /* HTTPResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4C23CEFB1800B3F32C /* HTTPResponseResult.swift */; };
+		D0387B4F23CF007200B3F32C /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4E23CF007200B3F32C /* APIServiceError.swift */; };
 		EA49DF209BF929BDF2A97CD3 /* Pods_ManiacWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +71,11 @@
 		D01769B123CB4728004BB390 /* WeatherHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHistoryViewController.swift; sourceTree = "<group>"; };
 		D01769B223CB4728004BB390 /* WeatherHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherHistoryViewController.xib; sourceTree = "<group>"; };
 		D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		D0387B4523CE66DA00B3F32C /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = ManiacWeather/README.txt; sourceTree = SOURCE_ROOT; };
+		D0387B4723CE6C6C00B3F32C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Extension.swift"; sourceTree = "<group>"; };
+		D0387B4C23CEFB1800B3F32C /* HTTPResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseResult.swift; sourceTree = "<group>"; };
+		D0387B4E23CF007200B3F32C /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManiacWeather.release.xcconfig"; path = "Target Support Files/Pods-ManiacWeather/Pods-ManiacWeather.release.xcconfig"; sourceTree = "<group>"; };
 		D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManiacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,13 +130,14 @@
 		D017692723C788E1004BB390 /* ManiacWeather */ = {
 			isa = PBXGroup;
 			children = (
-				D017693623C788E7004BB390 /* Info.plist */,
 				D017694923C79639004BB390 /* Configuration */,
 				D017693D23C78DBE004BB390 /* Common */,
 				D017693C23C78BDE004BB390 /* Modules */,
 				D017695023C79D6D004BB390 /* Helpers */,
 				D017693123C788E7004BB390 /* Assets.xcassets */,
 				D017693323C788E7004BB390 /* LaunchScreen.storyboard */,
+				D017693623C788E7004BB390 /* Info.plist */,
+				D0387B4523CE66DA00B3F32C /* README.txt */,
 			);
 			path = ManiacWeather;
 			sourceTree = "<group>";
@@ -194,6 +205,8 @@
 				D017695123C79D7A004BB390 /* UIView+Extension.swift */,
 				D017695323C79FEA004BB390 /* UIColor+Extension.swift */,
 				D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */,
+				D0387B4723CE6C6C00B3F32C /* UserDefaults+Extension.swift */,
+				D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -221,6 +234,7 @@
 		D017699223C9FE73004BB390 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				D0387B4C23CEFB1800B3F32C /* HTTPResponseResult.swift */,
 				D017699323C9FE86004BB390 /* HTTPMethod.swift */,
 				D01769AA23CB2583004BB390 /* HTTPError.swift */,
 			);
@@ -238,6 +252,7 @@
 		D017699923CA2761004BB390 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D0387B4E23CF007200B3F32C /* APIServiceError.swift */,
 				D017699A23CA2796004BB390 /* APIService.swift */,
 			);
 			path = Service;
@@ -265,10 +280,18 @@
 		D01769AC23CB4377004BB390 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0387B4923CE6F2400B3F32C /* TableViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0387B4923CE6F2400B3F32C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				D01769AD23CB445F004BB390 /* WeatherTableViewCell.swift */,
 				D01769AE23CB445F004BB390 /* WeatherTableViewCell.xib */,
 			);
-			path = View;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0387B4623CE66DA00B3F32C /* README.txt in Resources */,
 				D01769B423CB4728004BB390 /* WeatherHistoryViewController.xib in Resources */,
 				D01769B023CB4460004BB390 /* WeatherTableViewCell.xib in Resources */,
 				D017693523C788E7004BB390 /* LaunchScreen.storyboard in Resources */,
@@ -389,10 +413,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D017695423C79FEA004BB390 /* UIColor+Extension.swift in Sources */,
+				D0387B4B23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift in Sources */,
 				D017695223C79D7A004BB390 /* UIView+Extension.swift in Sources */,
 				D01769A623CA49CE004BB390 /* NetworkEnvironment.swift in Sources */,
 				D017699123C9FE0F004BB390 /* DashboardService.swift in Sources */,
 				D017692923C788E1004BB390 /* AppDelegate.swift in Sources */,
+				D0387B4F23CF007200B3F32C /* APIServiceError.swift in Sources */,
 				D01769AF23CB4460004BB390 /* WeatherTableViewCell.swift in Sources */,
 				D017699B23CA2796004BB390 /* APIService.swift in Sources */,
 				D017699823C9FF72004BB390 /* Weather.swift in Sources */,
@@ -402,11 +428,13 @@
 				D01769B623CB4E3E004BB390 /* UINavigationController+Extension.swift in Sources */,
 				D017699E23CA3172004BB390 /* URLParameterEncoder.swift in Sources */,
 				D01769AB23CB2583004BB390 /* HTTPError.swift in Sources */,
+				D0387B4823CE6C6C00B3F32C /* UserDefaults+Extension.swift in Sources */,
 				D017694823C795B6004BB390 /* SceneDelegate.swift in Sources */,
 				D01769A023CA31AD004BB390 /* EncoderBase.swift in Sources */,
 				D017694F23C79BAA004BB390 /* GradientBackgroundBaseViewController.swift in Sources */,
 				D01769A423CA422E004BB390 /* EndPoint.swift in Sources */,
 				D01769A823CB168D004BB390 /* APIType.swift in Sources */,
+				D0387B4D23CEFB1800B3F32C /* HTTPResponseResult.swift in Sources */,
 				D01769A223CA34E8004BB390 /* JSONParameterEncoder.swift in Sources */,
 				D017694C23C79AC5004BB390 /* DashboardViewController.swift in Sources */,
 			);

@@ -16,6 +16,12 @@ class DashboardViewController: GradientBackgroundBaseViewController {
     private var weather: Weather?
 
     // MARK: - UI Objects
+    @IBOutlet weak var weatherInfoView: UIView! {
+        didSet {
+            let cell = Bundle.main.loadNibNamed("WeatherTableViewCell", owner: self, options: nil)?[0] as? WeatherTableViewCell
+            weatherInfoView = cell?.contentView
+        }
+    }
     @IBOutlet private weak var inputContainerView: UIView!
     @IBOutlet private weak var searchButton: UIButton! {
         didSet {
@@ -36,7 +42,7 @@ class DashboardViewController: GradientBackgroundBaseViewController {
             locationInputField.leftViewMode = .always
 
             locationInputField.attributedPlaceholder = NSAttributedString(string: "Enter city name".uppercased(),
-                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.ManiacWeatherTheme.locationTextFieldPlaceHolderColor])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.ManiacWeatherTheme.locationTextFieldPlaceHolderColor])
         }
     }
 
@@ -59,8 +65,10 @@ class DashboardViewController: GradientBackgroundBaseViewController {
 
     // MARK: - Actions
     @IBAction private func searchButtonClicked(_ sender: Any) {
-        if let locationName = locationInputField.text {
+        if let locationName = locationInputField.text, !locationName.isEmpty {
             fetchWeatherFor(location: locationName)
+        } else {
+            self.showInfo(infoString: "Please enter a city name")
         }
     }
 
@@ -73,11 +81,21 @@ class DashboardViewController: GradientBackgroundBaseViewController {
     // MARK: - Services
     private func fetchWeatherFor(location: String) {
         dashboardService.weatherFor(location: location, completionBlock: { [weak self] weather, error in
-            if weather != nil {
+            if let weather = weather {
                 self?.weather = weather
+                self?.saveData(weather: weather)
             } else if let errorString = error {
                 self?.showError(errorString: errorString)
             }
         })
+    }
+
+    private func saveData(weather: Weather) {
+        var weatherList = UserDefaults.standard.value([Weather].self, forKey: "weatherList")
+        if weatherList?.count == 5 {
+            weatherList?.remove(at: 0)
+        }
+        weatherList?.append(weather)
+        UserDefaults.standard.set(encodable: weatherList, forKey: "weatherList")
     }
 }

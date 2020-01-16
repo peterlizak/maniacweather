@@ -29,7 +29,7 @@ class WeatherTableViewCell: UITableViewCell {
     }
 
     func setupFromWeather(weather: Weather) {
-        currentWeatherDescription.text = weather.description
+        currentWeatherDescription.text = weather.info?.first?.description
         if let temp = weather.main?.temp {
             temperature.text = String(temp) + "°"
         }
@@ -37,7 +37,10 @@ class WeatherTableViewCell: UITableViewCell {
         if let unixTime = weather.unixTime {
             date.text = unixToDate(unixTime: unixTime).uppercased()
         }
-        currentWeatherImageView?.loadImageUsingCache(withUrl: "https://openweathermap.org/img/wn/50n@2x.png")
+        if let iconName = weather.info?.first?.icon {
+            let downloadUrl = "https://openweathermap.org/img/wn/\(iconName)@2x.png"
+            currentWeatherImageView?.loadImageUsingCache(withUrl: downloadUrl)
+        }
     }
 
     // TODO: refactor this -> Maybe move this somewhere else

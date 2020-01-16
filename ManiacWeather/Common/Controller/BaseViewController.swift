@@ -18,4 +18,14 @@ class BaseViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+
+    func showInfo(infoString: String) {
+       DispatchQueue.main.async {
+           let alert = UIAlertController(title: "Info",
+                                         message: infoString,
+                                         preferredStyle: UIAlertController.Style.alert)
+           alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+           self.present(alert, animated: true, completion: nil)
+       }
+    }
 }

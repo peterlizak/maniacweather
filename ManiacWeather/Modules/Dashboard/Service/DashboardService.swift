@@ -22,7 +22,11 @@ class DashboardService {
             if success {
                 completionBlock(data, nil)
             } else {
-                completionBlock(nil, error)
+                if error?.code == 404 {
+                    completionBlock(nil, "Please enter a valid location")
+                } else {
+                    completionBlock(nil, error?.description)
+                }
             }
         })
     }

@@ -8,24 +8,28 @@
 
 import Foundation
 
-struct Weather: Decodable {
-    var description: String?
+struct Weather: Codable {
     var main: WeatherMain?
     var unixTime: Int?
     var locationName: String?
-    var iconName: String?
+    var info: [WeatherInfo]?
 
     private enum CodingKeys: String, CodingKey {
-       case description, main, locationName = "name", unixTime = "dt", iconName = "icon"
+       case locationName = "name", unixTime = "dt", info = "weather"
     }
 }
 
-struct WeatherMain: Decodable {
-    var temp: Int?
-    var tempMin: Int?
-    var tempMax: Int?
+struct WeatherInfo: Codable {
+    var description: String?
+    var icon: String?
+}
+
+struct WeatherMain: Codable {
+    var temp: Float?
+    var tempMin: Float?
+    var tempMax: Float?
 
     private enum CodingKeys: String, CodingKey {
-       case temp, tempMin = "temp_min", tempMax = "temp_max"
+       case tempMin = "temp_min", tempMax = "temp_max"
     }
 }
