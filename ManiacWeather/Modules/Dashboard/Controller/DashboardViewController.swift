@@ -16,12 +16,6 @@ class DashboardViewController: GradientBackgroundBaseViewController {
     private var weather: Weather?
 
     // MARK: - UI Objects
-    @IBOutlet weak var weatherInfoView: UIView! {
-        didSet {
-            let cell = Bundle.main.loadNibNamed("WeatherTableViewCell", owner: self, options: nil)?[0] as? WeatherTableViewCell
-            weatherInfoView = cell?.contentView
-        }
-    }
     @IBOutlet private weak var inputContainerView: UIView!
     @IBOutlet private weak var searchButton: UIButton! {
         didSet {
