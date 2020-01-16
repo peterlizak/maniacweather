@@ -34,7 +34,7 @@ class WeatherHistoryViewController: GradientBackgroundBaseViewController {
     }
 
     private func customBackButton() {
-        let image = UIImage(named: "arrow-right")
+        let image = UIImage(named: "arrow-left")
         navigationController?.imageAsBackButtonItem(image: image, imageColor: UIColor.ManiacWeatherTheme.white)
     }
 }
