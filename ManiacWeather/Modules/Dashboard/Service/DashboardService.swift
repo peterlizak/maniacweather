@@ -13,7 +13,7 @@ class DashboardService {
     private static let weatherForLocationMethod = HTTPMethod.get
 
     func weatherFor(location: String, completionBlock: @escaping (Weather?, String?) -> Void) {
-        let urlParameter = ["q": location, "APPID": "7587eaff3affbf8e56a81da4d6c51d06"]
+        let urlParameter = ["q": location, "APPID": "7587eaff3affbf8e56a81da4d6c51d06", "units": "metric"]
         let endPoint = EndPoint<Weather>(urlParameter: urlParameter,
                                          expectedResponseType: Weather.self,
                                          path: DashboardService.weatherForLocationPath,

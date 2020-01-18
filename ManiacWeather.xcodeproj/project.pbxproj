@@ -40,6 +40,11 @@
 		D0387B4F23CF007200B3F32C /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4E23CF007200B3F32C /* APIServiceError.swift */; };
 		D0ABEABE23D319DD00135E84 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */; };
 		D0ABEAC423D31F3700135E84 /* WeatherStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABEAC323D31F3700135E84 /* WeatherStorageManager.swift */; };
+		D0DC5AD323D3464900895B01 /* WeatherInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DC5AD223D3464900895B01 /* WeatherInfoView.xib */; };
+		D0DC5AD523D3472800895B01 /* WeatherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC5AD423D3472800895B01 /* WeatherInfoView.swift */; };
+		D0DC5AD723D34A2600895B01 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC5AD623D34A2600895B01 /* XibLoadable.swift */; };
+		D0DC5AD923D354A900895B01 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC5AD823D354A900895B01 /* UIImageView+Extension.swift */; };
+		D0DC5ADB23D35E3100895B01 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC5ADA23D35E3100895B01 /* UIButton+Extension.swift */; };
 		EA49DF209BF929BDF2A97CD3 /* Pods_ManiacWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +86,11 @@
 		D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManiacWeather.release.xcconfig"; path = "Target Support Files/Pods-ManiacWeather/Pods-ManiacWeather.release.xcconfig"; sourceTree = "<group>"; };
 		D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		D0ABEAC323D31F3700135E84 /* WeatherStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStorageManager.swift; sourceTree = "<group>"; };
+		D0DC5AD223D3464900895B01 /* WeatherInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherInfoView.xib; sourceTree = "<group>"; };
+		D0DC5AD423D3472800895B01 /* WeatherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoView.swift; sourceTree = "<group>"; };
+		D0DC5AD623D34A2600895B01 /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		D0DC5AD823D354A900895B01 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		D0DC5ADA23D35E3100895B01 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManiacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -213,6 +223,9 @@
 				D0387B4723CE6C6C00B3F32C /* UserDefaults+Extension.swift */,
 				D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */,
 				D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */,
+				D0DC5AD823D354A900895B01 /* UIImageView+Extension.swift */,
+				D0DC5ADA23D35E3100895B01 /* UIButton+Extension.swift */,
+				D0DC5AD623D34A2600895B01 /* XibLoadable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -287,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				D0387B4923CE6F2400B3F32C /* TableViewCell */,
+				D0DC5AD423D3472800895B01 /* WeatherInfoView.swift */,
+				D0DC5AD223D3464900895B01 /* WeatherInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -368,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DC5AD323D3464900895B01 /* WeatherInfoView.xib in Resources */,
 				D0387B4623CE66DA00B3F32C /* README.txt in Resources */,
 				D01769B423CB4728004BB390 /* WeatherHistoryViewController.xib in Resources */,
 				D01769B023CB4460004BB390 /* WeatherTableViewCell.xib in Resources */,
@@ -426,6 +442,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DC5ADB23D35E3100895B01 /* UIButton+Extension.swift in Sources */,
+				D0DC5AD923D354A900895B01 /* UIImageView+Extension.swift in Sources */,
 				D017695423C79FEA004BB390 /* UIColor+Extension.swift in Sources */,
 				D0387B4B23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift in Sources */,
 				D017695223C79D7A004BB390 /* UIView+Extension.swift in Sources */,
@@ -437,6 +455,7 @@
 				D017699B23CA2796004BB390 /* APIService.swift in Sources */,
 				D017699823C9FF72004BB390 /* Weather.swift in Sources */,
 				D017694023C78DEB004BB390 /* BaseViewController.swift in Sources */,
+				D0DC5AD523D3472800895B01 /* WeatherInfoView.swift in Sources */,
 				D017699423C9FE86004BB390 /* HTTPMethod.swift in Sources */,
 				D01769B323CB4728004BB390 /* WeatherHistoryViewController.swift in Sources */,
 				D01769B623CB4E3E004BB390 /* UINavigationController+Extension.swift in Sources */,
@@ -444,6 +463,7 @@
 				D01769AB23CB2583004BB390 /* HTTPError.swift in Sources */,
 				D0387B4823CE6C6C00B3F32C /* UserDefaults+Extension.swift in Sources */,
 				D017694823C795B6004BB390 /* SceneDelegate.swift in Sources */,
+				D0DC5AD723D34A2600895B01 /* XibLoadable.swift in Sources */,
 				D01769A023CA31AD004BB390 /* EncoderBase.swift in Sources */,
 				D017694F23C79BAA004BB390 /* GradientBackgroundBaseViewController.swift in Sources */,
 				D01769A423CA422E004BB390 /* EndPoint.swift in Sources */,
@@ -592,6 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62JD93G7RB;
 				INFOPLIST_FILE = ManiacWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = peter.lizak.ManiacWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -611,6 +632,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62JD93G7RB;
 				INFOPLIST_FILE = ManiacWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = peter.lizak.ManiacWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

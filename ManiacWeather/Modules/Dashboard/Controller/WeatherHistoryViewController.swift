@@ -55,7 +55,7 @@ extension WeatherHistoryViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.reuseIdentifier) as? WeatherTableViewCell
-        cell?.setupFromWeather(weather: weathers[indexPath.row])
+        cell?.setupFrom(weather: weathers[indexPath.row])
         return cell ?? UITableViewCell()
     }
 

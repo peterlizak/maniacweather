@@ -49,8 +49,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33o-4l-o9r">
                                 <rect key="frame" x="0.0" y="38" width="392" height="163"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xqX-Rp-3sr">
-                                        <rect key="frame" x="12" y="134" width="80" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xqX-Rp-3sr">
+                                        <rect key="frame" x="12" y="155" width="80" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="u6f-1M-hmB"/>
                                         </constraints>
@@ -58,14 +58,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="133°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-5S-i20">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-5S-i20">
                                         <rect key="frame" x="92" y="0.0" width="234" height="163"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-da-Wfw">
-                                        <rect key="frame" x="334" y="134.5" width="50" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-da-Wfw">
+                                        <rect key="frame" x="334" y="155" width="50" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="YU2-Z9-XWr"/>
                                         </constraints>
@@ -111,11 +111,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="containerView" destination="sWB-kc-l5y" id="gGl-ug-ztT"/>
-                <outlet property="currentWeatherDescription" destination="5X5-AI-qna" id="eva-F6-fTd"/>
-                <outlet property="currentWeatherImageView" destination="rL4-E3-RBU" id="GCU-nJ-cad"/>
                 <outlet property="date" destination="u7g-da-Wfw" id="uay-zc-K1W"/>
                 <outlet property="location" destination="xqX-Rp-3sr" id="2gs-uj-Zg6"/>
                 <outlet property="temperature" destination="OPs-5S-i20" id="ODR-Zq-Xd5"/>
+                <outlet property="weatherDescription" destination="5X5-AI-qna" id="eva-F6-fTd"/>
+                <outlet property="weatherImageView" destination="rL4-E3-RBU" id="GCU-nJ-cad"/>
             </connections>
             <point key="canvasLocation" x="107.24637681159422" y="155.02232142857142"/>
         </tableViewCell>

@@ -15,7 +15,7 @@ struct Weather: Codable {
     var info: [WeatherInfo]?
 
     private enum CodingKeys: String, CodingKey {
-       case locationName = "name", unixTime = "dt", info = "weather"
+       case locationName = "name", unixTime = "dt", info = "weather", main
     }
 }
 
@@ -30,6 +30,15 @@ struct WeatherMain: Codable {
     var tempMax: Float?
 
     private enum CodingKeys: String, CodingKey {
-       case tempMin = "temp_min", tempMax = "temp_max"
+       case tempMin = "temp_min", tempMax = "temp_max", temp
+    }
+}
+
+extension WeatherMain {
+    var roundedTemp: Int? {
+        if let temperature = temp {
+            return Int(temperature)
+        }
+        return nil
     }
 }

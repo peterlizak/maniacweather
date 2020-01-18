@@ -16,8 +16,8 @@ class WeatherTableViewCell: UITableViewCell {
             containerView.layer.masksToBounds = false
         }
     }
-    @IBOutlet weak var currentWeatherImageView: UIImageView!
-    @IBOutlet weak var currentWeatherDescription: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -28,9 +28,9 @@ class WeatherTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func setupFromWeather(weather: Weather) {
-        currentWeatherDescription.text = weather.info?.first?.description
-        if let temp = weather.main?.temp {
+    func setupFrom(weather: Weather) {
+        weatherDescription.text = weather.info?.first?.description
+        if let temp = weather.main?.roundedTemp {
             temperature.text = String(temp) + "°"
         }
         location.text = weather.locationName
@@ -39,7 +39,7 @@ class WeatherTableViewCell: UITableViewCell {
         }
         if let iconName = weather.info?.first?.icon {
             let downloadUrl = "https://openweathermap.org/img/wn/\(iconName)@2x.png"
-            currentWeatherImageView?.loadImageUsingCache(withUrl: downloadUrl)
+            weatherImageView?.loadImageUsingCache(withUrl: downloadUrl, completion: nil)
         }
     }
 
@@ -53,34 +53,4 @@ class WeatherTableViewCell: UITableViewCell {
         return localDate
     }
 
-}
-
-let imageCache = NSCache<NSString, UIImage>()
-extension UIImageView {
-    func loadImageUsingCache(withUrl urlString: String) {
-        let url = URL(string: urlString)
-        if url == nil {return}
-        self.image = nil
-
-        // check cached image
-        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
-            self.image = cachedImage
-            return
-        }
-
-        // if not, download image from url
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, _, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data!) {
-                    imageCache.setObject(image, forKey: urlString as NSString)
-                    self.image = image
-                }
-            }
-
-        }).resume()
-    }
 }

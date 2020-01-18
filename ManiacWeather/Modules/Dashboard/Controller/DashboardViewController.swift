@@ -17,6 +17,7 @@ class DashboardViewController: GradientBackgroundBaseViewController {
     private var weather: Weather?
 
     // MARK: - UI Objects
+    @IBOutlet private weak var weatherInfoView: WeatherInfoView!
     @IBOutlet private weak var inputContainerView: UIView!
     @IBOutlet private weak var searchButton: UIButton! {
         didSet {
@@ -76,13 +77,23 @@ class DashboardViewController: GradientBackgroundBaseViewController {
 
     // MARK: - Services
     private func fetchWeatherFor(location: String) {
+        searchButton.loadingIndicator(show: true)
         dashboardService.weatherFor(location: location, completionBlock: { [weak self] weather, error in
+            self?.searchButton.loadingIndicator(show: false)
             if let weather = weather {
-                self?.weather = weather
-                self?.weatherStorage.saveData(weather: weather)
+                self?.processWeatherResponse(weatherResponse: weather)
             } else if let errorString = error {
                 self?.showError(errorString: errorString)
             }
         })
+    }
+
+    private func processWeatherResponse(weatherResponse: Weather) {
+        weather = weatherResponse
+        weatherStorage.saveData(weather: weatherResponse)
+        DispatchQueue.main.async { [weak self] in
+            self?.weatherInfoView.setupFrom(weather: weatherResponse)
+            self?.weatherInfoView.isHidden = false
+        }
     }
 }
