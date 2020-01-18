@@ -9,14 +9,14 @@
 import Foundation
 
 class DashboardService {
-    private static let weatherForCityPath = "data/2.5/weather"
-    private static let weatherForCityMethod = HTTPMethod.get
+    private static let weatherForLocationPath = "data/2.5/weather"
+    private static let weatherForLocationMethod = HTTPMethod.get
 
     func weatherFor(location: String, completionBlock: @escaping (Weather?, String?) -> Void) {
         let urlParameter = ["q": location, "APPID": "7587eaff3affbf8e56a81da4d6c51d06"]
         let endPoint = EndPoint<Weather>(urlParameter: urlParameter,
                                          expectedResponseType: Weather.self,
-                                         path: DashboardService.weatherForCityPath,
+                                         path: DashboardService.weatherForLocationPath,
                                          api: .weather)
         APIService.shared.perform(endPoint: endPoint, completion: { success, data, error  in
             if success {

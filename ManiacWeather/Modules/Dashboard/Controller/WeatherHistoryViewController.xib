@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherHistoryViewController" customModule="ManiacWeather" customModuleProvider="target">
             <connections>
-                <outlet property="historyTableView" destination="hag-jZ-Jbh" id="PyB-QM-8Wo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherHistoryTableView" destination="hag-jZ-Jbh" id="PyB-QM-8Wo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

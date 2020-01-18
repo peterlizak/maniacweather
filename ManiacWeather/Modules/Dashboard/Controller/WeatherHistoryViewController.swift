@@ -11,17 +11,19 @@ import UIKit
 class WeatherHistoryViewController: GradientBackgroundBaseViewController {
 
     private var weathers: [Weather] = []
-    @IBOutlet weak var historyTableView: UITableView! {
+    private let weatherStorage = WeatherStorageManager()
+
+    @IBOutlet weak var weatherHistoryTableView: UITableView! {
         didSet {
-            historyTableView.dataSource = self
-            historyTableView.tableFooterView = UIView()
-            historyTableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeatherTableViewCell.reuseIdentifier)
+            weatherHistoryTableView.dataSource = self
+            weatherHistoryTableView.tableFooterView = UIView()
+            weatherHistoryTableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: WeatherTableViewCell.reuseIdentifier)
         }
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        weathers = UserDefaults.standard.value([Weather].self, forKey: "weatherList") ?? []
+        weathers = weatherStorage.weatherHistory()
     }
 
     required init?(coder: NSCoder) {
@@ -31,6 +33,13 @@ class WeatherHistoryViewController: GradientBackgroundBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customBackButton()
+        checkForEmptyData()
+    }
+
+    private func checkForEmptyData() {
+        if weathers.isEmpty {
+            weatherHistoryTableView.setEmptyMessage("Your searching history is empty")
+        }
     }
 
     private func customBackButton() {
@@ -48,5 +57,19 @@ extension WeatherHistoryViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.reuseIdentifier) as? WeatherTableViewCell
         cell?.setupFromWeather(weather: weathers[indexPath.row])
         return cell ?? UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            weathers = weatherStorage.removeWeather(weather: weathers[indexPath.row])
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+            checkForEmptyData()
+        }
     }
 }

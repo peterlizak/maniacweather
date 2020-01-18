@@ -38,6 +38,8 @@
 		D0387B4B23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */; };
 		D0387B4D23CEFB1800B3F32C /* HTTPResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4C23CEFB1800B3F32C /* HTTPResponseResult.swift */; };
 		D0387B4F23CF007200B3F32C /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0387B4E23CF007200B3F32C /* APIServiceError.swift */; };
+		D0ABEABE23D319DD00135E84 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */; };
+		D0ABEAC423D31F3700135E84 /* WeatherStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABEAC323D31F3700135E84 /* WeatherStorageManager.swift */; };
 		EA49DF209BF929BDF2A97CD3 /* Pods_ManiacWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		D0387B4C23CEFB1800B3F32C /* HTTPResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseResult.swift; sourceTree = "<group>"; };
 		D0387B4E23CF007200B3F32C /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		D075296A02F2039EB79AF085 /* Pods-ManiacWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManiacWeather.release.xcconfig"; path = "Target Support Files/Pods-ManiacWeather/Pods-ManiacWeather.release.xcconfig"; sourceTree = "<group>"; };
+		D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		D0ABEAC323D31F3700135E84 /* WeatherStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStorageManager.swift; sourceTree = "<group>"; };
 		D8B6E26CBC803A4B920D3E74 /* Pods_ManiacWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManiacWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,7 +137,6 @@
 				D017694923C79639004BB390 /* Configuration */,
 				D017693D23C78DBE004BB390 /* Common */,
 				D017693C23C78BDE004BB390 /* Modules */,
-				D017695023C79D6D004BB390 /* Helpers */,
 				D017693123C788E7004BB390 /* Assets.xcassets */,
 				D017693323C788E7004BB390 /* LaunchScreen.storyboard */,
 				D017693623C788E7004BB390 /* Info.plist */,
@@ -155,6 +158,7 @@
 			children = (
 				D017695523C87BBD004BB390 /* NetworkingLayer */,
 				D017693E23C78DC8004BB390 /* Controller */,
+				D017695023C79D6D004BB390 /* Helpers */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -175,6 +179,7 @@
 				D017699523C9FF63004BB390 /* Model */,
 				D017694623C78E57004BB390 /* Controller */,
 				D017698E23C9FDF8004BB390 /* Service */,
+				D0ABEAC123D31F1A00135E84 /* DataManager */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				D01769B523CB4E3E004BB390 /* UINavigationController+Extension.swift */,
 				D0387B4723CE6C6C00B3F32C /* UserDefaults+Extension.swift */,
 				D0387B4A23CEFA8C00B3F32C /* HTTPURLResponse+Extension.swift */,
+				D0ABEABD23D319DD00135E84 /* UITableView+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,6 +298,14 @@
 				D01769AE23CB445F004BB390 /* WeatherTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		D0ABEAC123D31F1A00135E84 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0ABEAC323D31F3700135E84 /* WeatherStorageManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,7 +450,9 @@
 				D01769A823CB168D004BB390 /* APIType.swift in Sources */,
 				D0387B4D23CEFB1800B3F32C /* HTTPResponseResult.swift in Sources */,
 				D01769A223CA34E8004BB390 /* JSONParameterEncoder.swift in Sources */,
+				D0ABEAC423D31F3700135E84 /* WeatherStorageManager.swift in Sources */,
 				D017694C23C79AC5004BB390 /* DashboardViewController.swift in Sources */,
+				D0ABEABE23D319DD00135E84 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
