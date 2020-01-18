@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum EndPointError: Error {
+    case baseURLEmpty(String)
+}
+
 struct EndPoint<T: Decodable> {
     var urlParameter: [String: String]?
     var jsonParameter: [String: Any]?
@@ -21,13 +25,21 @@ struct EndPoint<T: Decodable> {
 extension EndPoint {
     func buildRequest<T: Decodable>(from route: EndPoint<T>) throws -> URLRequest {
 
-        var request = URLRequest(url: route.api.baseURL.appendingPathComponent(route.path),
+        var endPoint = route
+        guard let baseUrl = endPoint.api.baseURL else {
+            throw EndPointError.baseURLEmpty("API base URL is empty or contains incorrect data")
+        }
+
+        var request = URLRequest(url: baseUrl.appendingPathComponent(endPoint.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
 
-        request.httpMethod = route.httpMethod.rawValue
+        request.httpMethod = endPoint.httpMethod.rawValue
 
-        if let urlParameter = route.urlParameter {
+        if let urlAPIKey = endPoint.api.urlAPIKey {
+            endPoint.urlParameter?.merge(dict: urlAPIKey)
+        }
+        if let urlParameter = endPoint.urlParameter {
             do {
                 try configureURlParameters(request: &request, urlParameters: urlParameter)
             } catch {
@@ -36,7 +48,7 @@ extension EndPoint {
             }
         }
 
-        if let jsonParameter = route.jsonParameter {
+        if let jsonParameter = endPoint.jsonParameter {
             do {
                 try configureJSONParameters(request: &request, jasonParameters: jsonParameter)
             } catch {

@@ -28,11 +28,9 @@ class DashboardViewController: GradientBackgroundBaseViewController {
             }
         }
     }
-
     @IBOutlet private weak var locationInputField: UITextField! {
         didSet {
             locationInputField.roundCorners(corners: [.topLeft, .bottomLeft], radius: defaultCornerRadius)
-
             let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: locationInputField.frame.height))
             locationInputField.leftView = leftView
             locationInputField.leftViewMode = .always
@@ -41,7 +39,6 @@ class DashboardViewController: GradientBackgroundBaseViewController {
                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.ManiacWeatherTheme.locationTextFieldPlaceHolderColor])
         }
     }
-
     @IBOutlet private weak var historyButton: UIButton! {
         didSet {
             historyButton.backgroundColor = UIColor.ManiacWeatherTheme.historyButtonBackgroundColor
@@ -53,7 +50,7 @@ class DashboardViewController: GradientBackgroundBaseViewController {
         }
     }
 
-    // MARK: - Overides
+    // MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.transparentBackground()
@@ -88,6 +85,7 @@ class DashboardViewController: GradientBackgroundBaseViewController {
         })
     }
 
+    // MARK: - Helper functions
     private func processWeatherResponse(weatherResponse: Weather) {
         weather = weatherResponse
         weatherStorage.saveData(weather: weatherResponse)

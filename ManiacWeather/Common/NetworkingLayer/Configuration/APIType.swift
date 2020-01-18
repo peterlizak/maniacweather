@@ -13,14 +13,31 @@ enum APIType {
 }
 
 extension APIType {
-    var baseURL: URL {
-        switch environment {
-        case .production:
-           return URL(fileURLWithPath: "https://api.openweathermap.org")
+    private var weatherAPIBaseURL: String {
+        return "https://api.openweathermap.org"
+    }
+
+    var baseURL: URL? {
+        switch self {
+        case .weather:
+            switch environment {
+            case .production:
+                return URL(string: weatherAPIBaseURL)
+            }
         }
     }
-    // TODO: Environment should be determined by Scheme or by global flag
-    var environment: NetworkEnvironment {
+
+    var environment: NetworkEnvironmentType {
         return .production
+    }
+
+    var urlAPIKey: [String: String]? {
+        switch self {
+        case .weather:
+            switch environment {
+            case .production:
+                return ["APPID": "7587eaff3affbf8e56a81da4d6c51d06"]
+            }
+        }
     }
 }

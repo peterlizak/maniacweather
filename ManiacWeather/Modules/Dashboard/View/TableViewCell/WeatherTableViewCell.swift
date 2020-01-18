@@ -10,6 +10,7 @@ import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
 
+    // MARK: - UIObjects
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 14
@@ -22,12 +23,16 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var date: UILabel!
 
+    // MARK: - Properties
     static var reuseIdentifier = "WeatherTableViewCell"
+
+    // MARK: - Overrides
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    // MARK: - Setup
     func setupFrom(weather: Weather) {
         weatherDescription.text = weather.info?.first?.description
         if let temp = weather.main?.roundedTemp {
@@ -35,22 +40,11 @@ class WeatherTableViewCell: UITableViewCell {
         }
         location.text = weather.locationName
         if let unixTime = weather.unixTime {
-            date.text = unixToDate(unixTime: unixTime).uppercased()
+            date.text = unixTime.dateValue?.uppercased()
         }
         if let iconName = weather.info?.first?.icon {
             let downloadUrl = "https://openweathermap.org/img/wn/\(iconName)@2x.png"
             weatherImageView?.loadImageUsingCache(withUrl: downloadUrl, completion: nil)
         }
     }
-
-    // TODO: refactor this -> Maybe move this somewhere else
-    private func unixToDate(unixTime: Int) -> String {
-        let date = Date(timeIntervalSince1970: Double(unixTime))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .full
-        dateFormatter.dateFormat = "EEE dd"
-        let localDate = dateFormatter.string(from: date).replacingOccurrences(of: " ", with: "\n")
-        return localDate
-    }
-
 }

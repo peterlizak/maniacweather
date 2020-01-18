@@ -10,11 +10,11 @@ import UIKit
 
 class GradientBackgroundBaseViewController: BaseViewController {
 
-    var gradientBackgroundStartColor: CGColor {
+    private var gradientBackgroundStartColor: CGColor {
         return UIColor.ManiacWeatherTheme.gradientBackgroundStartColor.cgColor
     }
 
-    var gradientBackgroundEndColor: CGColor {
+    private var gradientBackgroundEndColor: CGColor {
         return UIColor.ManiacWeatherTheme.gradientBackgroundEndColor.cgColor
     }
 

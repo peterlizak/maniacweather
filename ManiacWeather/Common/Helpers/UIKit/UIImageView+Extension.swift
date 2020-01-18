@@ -9,7 +9,9 @@
 import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
+
 extension UIImageView {
+
     func loadImageUsingCache(withUrl urlString: String, completion: ( () -> Void)? ) {
         let url = URL(string: urlString)
         if url == nil {return}
@@ -38,4 +40,5 @@ extension UIImageView {
 
         }).resume()
     }
+
 }

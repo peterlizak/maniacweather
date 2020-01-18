@@ -13,10 +13,12 @@ protocol XibLoadable {
 }
 
 extension XibLoadable where Self: UIView {
+
     func initFromNib() {
         Bundle.main.loadNibNamed(String(describing: Self.self), owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
+
 }

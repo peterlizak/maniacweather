@@ -18,8 +18,7 @@ class APIService {
            let request = try endPoint.buildRequest(from: endPoint)
            task = session.dataTask(with: request, completionHandler: { data, response, error in
                 if let response = response as? HTTPURLResponse {
-                    // TODO: Check for endPoint.expectedStatusCode
-                    let result = response.handleNetworkResponse()
+                    let result = response.handleNetworkResponse(expectedResponseCode: endPoint.expectedResponseCode)
                     switch result {
                     case .success:
                         if endPoint.expectedResponseType == nil {
@@ -27,7 +26,7 @@ class APIService {
                             return
                         }
                         guard let responseData = data else {
-                            completion(false, nil, APIServiceError(code: response.statusCode, description: NetworkResponse.noData.rawValue))
+                            completion(false, nil, APIServiceError(code: response.statusCode, description: HTTPResponseDescription.noData.rawValue))
                            return
                         }
                         do {
@@ -35,18 +34,20 @@ class APIService {
                              completion(true, apiResponse, nil)
                         } catch {
                              print(error)
-                             completion(false, nil, APIServiceError(code: response.statusCode, description: NetworkResponse.unableToDecode.rawValue))
+                             completion(false, nil, APIServiceError(code: response.statusCode, description: HTTPResponseDescription.unableToDecode.rawValue))
                         }
                     case .failure(let networkFailureError):
-                       completion(false, nil, APIServiceError(code: response.statusCode, description: networkFailureError))
+                        print(networkFailureError)
+                        completion(false, nil, APIServiceError(code: response.statusCode, description: networkFailureError))
                     }
                 } else {
-                    completion(false, nil, APIServiceError(code: nil, description: NetworkResponse.unableToParseURLResponse.rawValue))
+                    print(HTTPResponseDescription.unableToParseURLResponse.rawValue)
+                    completion(false, nil, APIServiceError(code: nil, description: HTTPResponseDescription.unableToParseURLResponse.rawValue))
                 }
            })
         } catch {
             print(error)
-            completion(false, nil, APIServiceError(code: nil, description: NetworkResponse.unableToBuildRequest.rawValue))
+            completion(false, nil, APIServiceError(code: nil, description: HTTPResponseDescription.unableToBuildRequest.rawValue))
         }
         self.task?.resume()
     }

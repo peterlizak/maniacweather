@@ -9,22 +9,25 @@
 import UIKit
 
 class WeatherInfoView: UIView, XibLoadable {
+
+    // MARK: - UIObjects
     @IBOutlet var contentView: UIView! {
         didSet {
            contentView.layer.cornerRadius = 14
            contentView.layer.masksToBounds = false
         }
     }
-
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var temperature: UILabel!
 
+    // MARK: - Overrides
     override func awakeFromNib() {
         super.awakeFromNib()
         initFromNib()
     }
 
+    // MARK: - Setup
     func setupFrom(weather: Weather) {
         location.text = weather.locationName
         if let temp = weather.main?.roundedTemp {

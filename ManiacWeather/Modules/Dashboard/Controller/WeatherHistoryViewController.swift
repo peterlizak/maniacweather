@@ -10,9 +10,11 @@ import UIKit
 
 class WeatherHistoryViewController: GradientBackgroundBaseViewController {
 
+    // MARK: - Properties
     private var weathers: [Weather] = []
     private let weatherStorage = WeatherStorageManager()
 
+    // MARK: - UIObjects
     @IBOutlet weak var weatherHistoryTableView: UITableView! {
         didSet {
             weatherHistoryTableView.dataSource = self
@@ -21,6 +23,7 @@ class WeatherHistoryViewController: GradientBackgroundBaseViewController {
         }
     }
 
+    // MARK: - Overrides
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         weathers = weatherStorage.weatherHistory()
@@ -36,6 +39,7 @@ class WeatherHistoryViewController: GradientBackgroundBaseViewController {
         checkForEmptyData()
     }
 
+    // MARK: - Helper functions
     private func checkForEmptyData() {
         if weathers.isEmpty {
             weatherHistoryTableView.setEmptyMessage("Your searching history is empty")
@@ -48,6 +52,7 @@ class WeatherHistoryViewController: GradientBackgroundBaseViewController {
     }
 }
 
+// MARK: - Delegate extensions
 extension WeatherHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weathers.count

@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIButton {
+
     func loadingIndicator(show: Bool) {
         DispatchQueue.main.async {
             let tag = 808404
@@ -32,4 +33,5 @@ extension UIButton {
             }
         }
     }
+
 }

@@ -10,17 +10,11 @@ import Foundation
 
 public typealias Parameters = [String: Any]
 
-public protocol ParameterEncoder {
+protocol ParameterEncoder {
     func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws
 }
 
-public enum EncodingError: String, Error {
-    case parametersNil = "Parameters were nil."
-    case encodingFailed = "Parameter encoding failed."
-    case missingURL = "URL is nil."
-}
-
-public enum ParameterEncoding {
+enum ParameterEncoding {
 
     case urlEncoding
     case jsonEncoding

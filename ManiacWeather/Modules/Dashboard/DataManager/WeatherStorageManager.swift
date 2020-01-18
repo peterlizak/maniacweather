@@ -15,13 +15,13 @@ class WeatherStorageManager {
     private let weatherListKey = "weatherList"
 
     func saveData(weather: Weather) {
-       var weatherList = retrieveWeatherHistoryFromUserDefaults()
-       removeDuplicateData(weatherList: &weatherList, weather: weather)
-       if weatherList.count == weatherListLimit {
-           weatherList.remove(at: 0)
-       }
-       weatherList.append(weather)
-       UserDefaults.standard.set(encodable: weatherList, forKey: weatherListKey)
+        var weatherList = retrieveWeatherHistoryFromUserDefaults()
+        removeDuplicateData(weatherList: &weatherList, weather: weather)
+        if weatherList.count >= weatherListLimit {
+            weatherList.remove(at: weatherListLimit - 1)
+        }
+        weatherList.insert(weather, at: 0)
+        UserDefaults.standard.set(encodable: weatherList, forKey: weatherListKey)
     }
 
     func removeWeather(weather: Weather) -> [Weather] {
@@ -37,10 +37,7 @@ class WeatherStorageManager {
     }
 
     private func retrieveWeatherHistoryFromUserDefaults() -> [Weather] {
-        var history = UserDefaults.standard.value([Weather].self, forKey: weatherListKey) ?? []
-        history.reverse()
-
-        return history
+        return UserDefaults.standard.value([Weather].self, forKey: weatherListKey) ?? []
     }
 
     private func removeDuplicateData(weatherList: inout [Weather], weather: Weather) {

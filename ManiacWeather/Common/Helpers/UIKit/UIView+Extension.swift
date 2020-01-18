@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+
     func applyGradientBackground(colors: [CGColor]) {
         let gradient = CAGradientLayer()
 
@@ -24,4 +25,5 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+    
 }

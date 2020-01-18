@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum NetworkEnvironment {
+enum NetworkEnvironmentType {
     case production
 }

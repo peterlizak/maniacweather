@@ -9,6 +9,7 @@
 import UIKit
 
 extension UINavigationController {
+
     func transparentBackground() {
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
@@ -23,4 +24,5 @@ extension UINavigationController {
         barButtonItem.tintColor = UIColor.ManiacWeatherTheme.white
         navigationBar.topItem?.backBarButtonItem = barButtonItem
     }
+
 }

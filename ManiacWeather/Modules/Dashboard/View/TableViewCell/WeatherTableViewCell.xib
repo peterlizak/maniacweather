@@ -50,16 +50,16 @@
                                 <rect key="frame" x="0.0" y="38" width="392" height="163"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="xqX-Rp-3sr">
-                                        <rect key="frame" x="12" y="155" width="80" height="0.0"/>
+                                        <rect key="frame" x="12" y="155" width="90" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="u6f-1M-hmB"/>
+                                            <constraint firstAttribute="width" constant="90" id="u6f-1M-hmB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-5S-i20">
-                                        <rect key="frame" x="92" y="0.0" width="234" height="163"/>
+                                        <rect key="frame" x="102" y="0.0" width="224" height="163"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="YU2-Z9-XWr"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
